@@ -7,7 +7,7 @@
 http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
 	<flow name="api-main">
-		<http:listener config-ref="apiHttpListenerConfig" path="/api/v1/*">
+		<http:listener config-ref="apiHttpListenerConfig" path="/api/${api.majorVersion}/*">
 			<http:response statusCode="#[vars.httpStatus default 200]">
 				<http:headers>#[vars.outboundHeaders default {}]</http:headers>
 			</http:response>
